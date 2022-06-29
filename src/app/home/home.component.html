@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col">
+    <input type="text"  id="usr" [(ngModel)]="todo">   
+    <button type="button" class="btn" (click)="add()" [disabled]="!todo" *ngIf="!isUpdate">Add item</button>
+    <button type="but" class="btn" (click)="updateTodo()" [disabled]="!todo" *ngIf="isUpdate">update</button>
+</div>
+</div>
+<div class="row" *ngIf="todoArr.length">
+    <ul class="list">
+        <li class="list" *ngFor="let x of todoArr; index as i">{{i + 1}}.{{x}}
+            <button (click)="upTodo(i)" *ngIf="i">Up</button>
+            <button (click)="downTodo(i)" *ngIf="i !=todoArr.length-1">Down</button>
+            <button class="btn"(click)="editTodo(i)">Edit</button>
+            <button (click)="delete(i)">Delete</button>
+        </li>
+    </ul>
+</div>
